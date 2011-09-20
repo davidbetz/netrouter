@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{021CEFFF-EB53-4E6D-992F-ADEA3D0D813C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetInterop.Routing</RootNamespace>
+    <AssemblyName>NetInterop.Routing</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nalarium, Version=3.0.0.0, Culture=neutral, PublicKeyToken=dc6429114df2bd49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(HomeDrive)\_REFERENCE\Debug\Nalarium.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyModuleAttribute.cs" />
+    <Compile Include="CancelProcessingHandler.cs" />
+    <Compile Include="CommonData.cs" />
+    <Compile Include="ComponentParsed.cs" />
+    <Compile Include="ComponentParsedEventArgs.cs" />
+    <Compile Include="ByteReader.cs" />
+    <Compile Include="Device.cs" />
+    <Compile Include="InterfaceState.cs" />
+    <Compile Include="IPConfiguration.cs" />
+    <Compile Include="IPv6Configuration.cs" />
+    <Compile Include="IRequestHandler.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="FieldSizeIgnoreAttribute.cs" />
+    <Compile Include="IReversable.cs" />
+    <Compile Include="IPv6Address.cs" />
+    <Compile Include="EmptyResult.cs" />
+    <Compile Include="DataConverter.cs" />
+    <Compile Include="HeaderOwnerAttribute.cs" />
+    <Compile Include="HeaderPackage.cs" />
+    <Compile Include="HeaderResult.cs" />
+    <Compile Include="ModuleEvent.cs" />
+    <Compile Include="ModuleEventArgs.cs" />
+    <Compile Include="InternalModule.cs" />
+    <Compile Include="ModuleTrackingInformation.cs" />
+    <Compile Include="NextStateMode.cs" />
+    <Compile Include="PacketData.cs" />
+    <Compile Include="ParsedEventArgs.cs" />
+    <Compile Include="HandlerData.cs" />
+    <Compile Include="HandlerDataValue.cs" />
+    <Compile Include="HandlerTrackingInformation.cs" />
+    <Compile Include="ModuleFound.cs" />
+    <Compile Include="ModuleFoundEventArgs.cs" />
+    <Compile Include="ModuleMetadataAttribute.cs" />
+    <Compile Include="HandlerMetadataAttribute.cs" />
+    <Compile Include="Interpreter.cs" />
+    <Compile Include="InterpretiveHandler.cs" />
+    <Compile Include="GlobalPropertyMetadataOptions.cs" />
+    <Compile Include="GlobalPropertyMetadata.cs" />
+    <Compile Include="DataTableAttribute.cs" />
+    <Compile Include="DoNotIncludeInDataTreeAttribute.cs" />
+    <Compile Include="FieldLabelAttribute.cs" />
+    <Compile Include="FieldOverrideAttribute.cs" />
+    <Compile Include="IHasStandardFormat.cs" />
+    <Compile Include="IHeader.cs" />
+    <Compile Include="IPAddress.cs" />
+    <Compile Include="MacAddress.cs" />
+    <Compile Include="Parsed.cs" />
+    <Compile Include="ResponseResult.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="Route.cs" />
+    <Compile Include="RouteEvent.cs" />
+    <Compile Include="RouteEventArgs.cs" />
+    <Compile Include="RoutingController.cs" />
+    <Compile Include="RootHandler.cs" />
+    <Compile Include="GlobalProperty.cs" />
+    <Compile Include="DummyHandler.cs" />
+    <Compile Include="Handler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateChange.cs" />
+    <Compile Include="StateChangeEventArgs.cs" />
+    <Compile Include="StateEntryMode.cs" />
+    <Compile Include="StateMachine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetInterop.Bridge\NetInterop.Bridge.vcxproj">
+      <Project>{372ca060-3f62-4746-8f9a-9b26f1c7551c}</Project>
+      <Name>NetInterop.Bridge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetInterop.Routing.Configuration\NetInterop.Routing.Configuration.csproj">
+      <Project>{54988299-98B3-49E1-9D5B-64DDDA3398B1}</Project>
+      <Name>NetInterop.Routing.Configuration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

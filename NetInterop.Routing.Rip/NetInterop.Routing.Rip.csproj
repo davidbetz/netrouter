@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43375875-3909-4826-81D8-C8ED8E3F499A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetInterop.Routing.Rip</RootNamespace>
+    <AssemblyName>NetInterop.Routing.Rip</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nalarium, Version=3.0.0.0, Culture=neutral, PublicKeyToken=dc6429114df2bd49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(HomeDrive)\_REFERENCE\Debug\Nalarium.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RipRoute.cs" />
+    <Compile Include="RipEvent.cs" />
+    <Compile Include="RipModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Enum\RipCommand.cs" />
+    <Compile Include="RipHandler.cs" />
+    <Compile Include="_Structure\RipDataHeader.cs" />
+    <Compile Include="_Structure\RipPreambleHeader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetInterop.Routing.Core\NetInterop.Routing.Core.csproj">
+      <Project>{40C5C01B-BC72-4A02-B0BE-63D76208B16F}</Project>
+      <Name>NetInterop.Routing.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetInterop.Routing.Rip.Configuration\NetInterop.Routing.Rip.Configuration.csproj">
+      <Project>{877A09B7-7C1A-4214-9E19-F4502D04E9BF}</Project>
+      <Name>NetInterop.Routing.Rip.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetInterop.Routing\NetInterop.Routing.csproj">
+      <Project>{021CEFFF-EB53-4E6D-992F-ADEA3D0D813C}</Project>
+      <Name>NetInterop.Routing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <Copy SkipUnchangedFiles="true" SourceFiles="$(OutDir)\$(TargetFileName)" DestinationFiles="$(SolutionDir)\Routing\$(TargetFileName)" />
+  </Target>
+</Project>

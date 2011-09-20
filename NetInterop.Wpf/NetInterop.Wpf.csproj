@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E221FC44-8504-451B-99CD-B52CBCBA74DF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetInterop.Wpf</RootNamespace>
+    <AssemblyName>NetInterop.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nalarium, Version=3.0.0.0, Culture=neutral, PublicKeyToken=dc6429114df2bd49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\_REFERENCE\Debug\Nalarium.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\PropertyListViewer.cs" />
+    <Compile Include="Controls\ValueViewer.cs" />
+    <Compile Include="Controls\HandlerView.cs" />
+    <Compile Include="Converters\BlankValueConverter.cs" />
+    <Compile Include="Converters\BlankMultiValueConverter.cs" />
+    <Compile Include="Converters\DataTableValueConverter.cs" />
+    <Compile Include="Converters\HandlerBrushConverter.cs" />
+    <Compile Include="Converters\IsNullOrZeroValueConverter.cs" />
+    <Compile Include="Converters\HeaderTypeValueConverter.cs" />
+    <Compile Include="Converters\StandardFormatValueConverter.cs" />
+    <Compile Include="Converters\ValueContentMultiValueConverter.cs" />
+    <Compile Include="Converters\ValueDataSourceMultiValueConverter.cs" />
+    <Compile Include="Converters\HasStandardFormatValueConverter.cs" />
+    <Compile Include="Controls\TemplateSelector.cs" />
+    <Compile Include="Converters\ValueDataSourceValueConverter.cs" />
+    <Compile Include="_Wpf\CoreApplication.cs" />
+    <Compile Include="_Wpf\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_Wpf\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetInterop.UICommon\NetInterop.UICommon.csproj">
+      <Project>{CC00868D-C1D7-4EBF-9C07-5647ABBBB3FB}</Project>
+      <Name>NetInterop.UICommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetInterop.Routing\NetInterop.Routing.csproj">
+      <Project>{021CEFFF-EB53-4E6D-992F-ADEA3D0D813C}</Project>
+      <Name>NetInterop.Routing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetInterop.Bridge\NetInterop.Bridge.vcxproj">
+      <Project>{372CA060-3F62-4746-8F9A-9B26F1C7551C}</Project>
+      <Name>NetInterop.Bridge</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="_Wpf\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

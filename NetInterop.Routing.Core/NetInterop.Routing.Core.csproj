@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{40C5C01B-BC72-4A02-B0BE-63D76208B16F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetInterop.Routing.Core</RootNamespace>
+    <AssemblyName>NetInterop.Routing.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nalarium, Version=3.0.0.0, Culture=neutral, PublicKeyToken=dc6429114df2bd49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(HomeDrive)\_REFERENCE\Debug\Nalarium.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArpData.cs" />
+    <Compile Include="ArpHandler.cs" />
+    <Compile Include="CiscoHandler.cs" />
+    <Compile Include="ILayer3Handler.cs" />
+    <Compile Include="IPPacketIdentifier.cs" />
+    <Compile Include="IPPacketPerDestinationIdentifier.cs" />
+    <Compile Include="SystemModule.cs" />
+    <Compile Include="_Enum\TcpOptionKind.cs" />
+    <Compile Include="_Structure\ArpHeader.cs" />
+    <Compile Include="_Structure\Bpdu.cs" />
+    <Compile Include="_Structure\IPv6Header.cs" />
+    <Compile Include="_Structure\EthernetHeader.cs" />
+    <Compile Include="_Structure\IPHeader.cs" />
+    <Compile Include="_Structure\Llc.cs" />
+    <Compile Include="_Structure\TcpHeader.cs" />
+    <Compile Include="_Structure\TypeOrLength.cs" />
+    <Compile Include="_Structure\UdpHeader.cs" />
+    <Compile Include="_Enum\TcpFlags.cs" />
+    <Compile Include="EthernetIIHandler.cs" />
+    <Compile Include="IEEE8023Handler.cs" />
+    <Compile Include="IPv4Handler.cs" />
+    <Compile Include="IPv6Handler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="L2SelectionHandler.cs" />
+    <Compile Include="StpHandler.cs" />
+    <Compile Include="UdpHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetInterop.Routing.Configuration\NetInterop.Routing.Configuration.csproj">
+      <Project>{54988299-98B3-49E1-9D5B-64DDDA3398B1}</Project>
+      <Name>NetInterop.Routing.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetInterop.Routing\NetInterop.Routing.csproj">
+      <Project>{021CEFFF-EB53-4E6D-992F-ADEA3D0D813C}</Project>
+      <Name>NetInterop.Routing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <Copy SkipUnchangedFiles="true" SourceFiles="$(OutDir)\$(TargetFileName)" DestinationFiles="$(SolutionDir)\Routing\$(TargetFileName)" />
+  </Target>
+</Project>
